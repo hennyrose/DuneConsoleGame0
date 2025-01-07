@@ -71,7 +71,7 @@ To run your custom-built `.jar`, use the instructions from the section above.
 ## ✨ Future Improvements
 - Add customizable difficulty levels.
 - Include more cards and events.
-- Add to Telegram Mini Apps.
+- Add the game to Telegram Mini Apps.
 
 Feel free to contribute, open issues, or suggest ideas!
 
