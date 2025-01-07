@@ -16,11 +16,11 @@ import javafx.scene.text.TextFlow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.util.List; // Імпорт для списків
-import java.util.ArrayList; // Імпорт для реалізації списків
+import java.util.List; 
+import java.util.ArrayList; 
 import java.util.Map;
 import java.util.Random;
-import java.io.InputStream; // Імпорт для роботи з InputStream
+import java.io.InputStream; 
 
 public class GameGUI extends Application {
 
@@ -35,16 +35,16 @@ public class GameGUI extends Application {
     private int enemySpiceProduction = 150; // Видобуток спецій для ворога
     private int enemyWaterConsumption = 25; // Витрати води для ворога
 
-    private Card[] deck; // Deck of cards
-    private int turn; // Current turn counter
+    private Card[] deck; 
+    private int turn; 
     private static final int MAX_TURNS = 7;
 
-    private List<Card> availableCards; // Список усіх карт
-    private List<Card> playerUsedCards = new ArrayList<>(); // Використані гравцем карти
-    private List<Card> enemyUsedCards = new ArrayList<>(); // Використані ворогом карти
+    private List<Card> availableCards; 
+    private List<Card> playerUsedCards = new ArrayList<>(); 
+    private List<Card> enemyUsedCards = new ArrayList<>(); 
 
-    private List<Card> playerDeck; // Колода карт для гравця
-    private List<Card> enemyDeck;  // Колода карт для ворога
+    private List<Card> playerDeck;
+    private List<Card> enemyDeck; 
 
     @Override
     public void start(Stage primaryStage) {
@@ -59,23 +59,20 @@ public class GameGUI extends Application {
         instructionBox.setPadding(new Insets(10));
         instructionBox.setSpacing(15);
         instructionBox.setAlignment(Pos.CENTER);
-        instructionBox.setStyle("-fx-background-color: #F5DEB3;"); // Пісочний стиль
+        instructionBox.setStyle("-fx-background-color: #F5DEB3;"); 
 
         // Логотип гри
         ImageView logoView = null;
         try {
-            // Завантажуємо логотип
-            Image logoImage = new Image(getClass().getResourceAsStream("/logo.png")); // Завантажуємо зображення
+            Image logoImage = new Image(getClass().getResourceAsStream("/logo.png"));
             logoView = new ImageView(logoImage);
 
-            // Налаштування розмірів логотипу
-            logoView.setFitWidth(300); // Встановлюємо ширину
-            logoView.setPreserveRatio(true); // Зберігаємо пропорції зображення
+            logoView.setFitWidth(300); 
+            logoView.setPreserveRatio(true); 
         } catch (Exception e) {
             System.err.println("Could not load logo image: " + e.getMessage());
         }
 
-        // Текст привітання
         Label titleLabel = new Label("Welcome to Dune Adventure Game!");
         titleLabel.setStyle("-fx-font-size: 16px; -fx-font-weight: bold;");
 
@@ -96,22 +93,19 @@ public class GameGUI extends Application {
         instructions.setStyle("-fx-font-size: 14px; -fx-text-alignment: center;");
         instructions.setWrapText(true);
 
-        // Кнопка для початку гри
         Button startGameButton = new Button("Start Game");
         startGameButton.setStyle("-fx-font-size: 14px;");
         startGameButton.setOnAction(e -> {
-            // Завантажуємо головну сцену гри
+        
             primaryStage.setScene(createGameScene(primaryStage));
             initializeGame();
         });
 
-        // Додаємо зображення, текст та кнопку у VBox
         if (logoView != null) {
             instructionBox.getChildren().add(logoView);
         }
         instructionBox.getChildren().addAll(titleLabel, instructions, startGameButton);
 
-        // Створюємо сцену інструкцій та показуємо її
         Scene instructionScene = new Scene(instructionBox, 800, 600);
         primaryStage.setScene(instructionScene);
         primaryStage.show();
