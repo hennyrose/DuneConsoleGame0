@@ -26,19 +26,45 @@ java -version
 ```
 If you don't have it, download and install JDK 20 from [Oracle JDK Downloads](https://www.oracle.com/java/technologies/javase/jdk20-archive-downloads.html).
 
-### 2. Download the JAR File
+### 2. **Download JavaFX** (if required)
+If your project requires JavaFX, download it from [JavaFX Downloads](https://openjfx.io/).  
+- Select your system (e.g., Windows, macOS, Linux) and download the latest stable version.
+- Unzip the downloaded file and note the **`lib` directory path**.
+
+### 3. **Download the JAR File**
 Clone the repository or download the `.jar` file:
 ```sh
 git clone https://github.com/yourusername/DuneConsoleGame.git
 cd DuneConsoleGame
 ```
 
-### 3. Run the JAR File
+### 4. **Run the JAR File**
+Run the game in a terminal or command prompt:
 
-java --module-path /path-to-javafx/lib --add-modules javafx.controls,javafx.fxml -jar DuneConsoleGame.jar
+#### If JavaFX is NOT required:
+```sh
+java -jar DuneConsoleGame.jar
 ```
 
-Replace `/path-to-javafx/lib` with the directory path to your JavaFX `lib` folder.
+#### If JavaFX is required:
+Add the JavaFX module path:
+```sh
+java --module-path /path-to-javafx-sdk/lib --add-modules javafx.controls,javafx.fxml -jar DuneConsoleGame.jar
+```
+
+Replace `/path-to-javafx-sdk/lib` with the directory path to your JavaFX `lib` folder.
+
+---
+
+## 🎯 Building the JAR File (Optional)
+If you want to build the JAR yourself:
+1. Use your favorite IDE (e.g., IntelliJ IDEA) to compile the code.
+2. Package the compiled `.class` files into a JAR file using the following command:
+   ```sh
+   jar --create --file DuneConsoleGame.jar -C out .
+   ```
+
+To run your custom-built `.jar`, use the instructions from the section above.
 
 ---
 
